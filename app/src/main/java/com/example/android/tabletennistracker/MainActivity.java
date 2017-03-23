@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public void addOneForPlayer1(View v) {
         scorePlayer1 = scorePlayer1 + 1;
         displayForPlayer1(scorePlayer1);
+
     }
 
 
