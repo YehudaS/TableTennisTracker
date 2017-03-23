@@ -35,30 +35,35 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Increase the let for Player 1 by 1 strike.
      */
-    public void addLetPlayer1 (View v) {
-        letScorePlayer1=letScorePlayer1 +1;
-        displayLetScorePlayer1 (letScorePlayer1);
+    public void addLetPlayer1(View v) {
+        letScorePlayer1 = letScorePlayer1 + 1;
+        displayLetScorePlayer1(letScorePlayer1);
+        if (letScorePlayer1 >= 3) addOneForPlayer2(v);
+        if (letScorePlayer1 >= 3) resetLetScore(v);
 
     }
+
     /**
      * Increase the score for Player 2 by 1 point.
      */
-    public void addOneForPlayer2() {
+    public void addOneForPlayer2(View v) {
         scorePlayer2 = scorePlayer2 + 1;
         displayForPlayer2(scorePlayer2);
     }
+
     /**
      * Increase the let for Player 2 by 1 strike.
      */
-    public void addLetPlayer2 (View v) {
-        letScorePlayer2=letScorePlayer2 +1;
-        displayLetScorePlayer2 (letScorePlayer2);
-        if (letScorePlayer1>3) addOneForPlayer2();
+    public void addLetPlayer2(View v) {
+        letScorePlayer2 = letScorePlayer2 + 1;
+        displayLetScorePlayer2(letScorePlayer2);
+        if (letScorePlayer2 >= 3) addOneForPlayer1(v);
+        if (letScorePlayer2 >= 3) resetLetScore(v);
     }
 
 
     /**
-     * Resets the score for both Teams
+     * Resets the point score for both Teams
      */
     public void resetScore(View v) {
         scorePlayer1 = 0;
@@ -68,39 +73,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Resets the let score for both Teams
+     */
+    public void resetLetScore(View v) {
+        letScorePlayer1 = 0;
+        letScorePlayer2 = 0;
+        displayLetScorePlayer1(letScorePlayer1);
+        displayLetScorePlayer2(letScorePlayer2);
+    }
+
+    /**
      * Displays the given score for Player 1.
      */
-    public void displayForPlayer1(int score) {
+    public void displayForPlayer1(int scorePlayer1) {
         TextView scoreView = (TextView) findViewById(R.id.player_1_score);
-        scoreView.setText(String.valueOf(score));
+        scoreView.setText(String.valueOf(scorePlayer1));
     }
 
     /**
      * Displays the given score for Player 2.
      */
 
-    public void displayForPlayer2(int score) {
+    public void displayForPlayer2(int scorePlayer2) {
         TextView scoreView = (TextView) findViewById(R.id.player_2_score);
-        scoreView.setText(String.valueOf(score));
+        scoreView.setText(String.valueOf(scorePlayer2));
     }
 
     /**
      * Displays the let score for Player 1
      */
 
-    public void displayLetScorePlayer1 (int score) {
+    public void displayLetScorePlayer1(int letScorePlayer1) {
         TextView scoreView = (TextView) findViewById(R.id.player_1_let_score);
-        scoreView.setText(String.valueOf(score));
-
-
+        scoreView.setText(String.valueOf(letScorePlayer1));
     }
 
     /**
      * Displays the let score for Player 2
      */
 
-    public void displayLetScorePlayer2 (int score) {
+    public void displayLetScorePlayer2(int letScorePlayer2) {
         TextView scoreView = (TextView) findViewById(R.id.player_2_let_score);
-        scoreView.setText(String.valueOf(score));
+        scoreView.setText(String.valueOf(letScorePlayer2));
     }
 }

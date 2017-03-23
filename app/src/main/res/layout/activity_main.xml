@@ -2,13 +2,43 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/tabletennis">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:onClick="resetLetScore"
+            android:text="Reset Let" />
+
+        <Button
+            android:id="@+id/reset_button"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:onClick="resetScore"
+            android:text="Reset Game" />
+    </LinearLayout>
+
 
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -25,63 +55,57 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:padding="16dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="18dp"
                 android:text="Player 1"
-                android:textColor="#616161"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/player_1_score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center"
-                android:paddingBottom="24dp"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="56sp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:onClick="addOneForPlayer1"
-                android:text="+1 Point" />
+                android:textColor="#f4b30f"
+                android:textSize="24sp" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="85dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player_1_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:paddingBottom="24dp"
+                    android:text="0"
+                    android:textColor="#f4b30f"
+                    android:textSize="56sp" />
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="24dp"
+                    android:onClick="addOneForPlayer1"
+                    android:text="+1 Point" />
+
+
+                <Button
+                    android:id="@+id/player_1_let_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:onClick="addLetPlayer1"
-                    android:text="Let"
-                    android:id="@+id/player_1_let_button"/>
+                    android:text="Let" />
 
                 <TextView
                     android:id="@+id/player_1_let_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_1_let_button"
+                    android:layout_gravity="center"
                     android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="26sp"
-                    />
+                    android:textColor="#f4b30f"
+                    android:textSize="26sp" />
             </LinearLayout>
 
-
         </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/darker_gray"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -92,14 +116,16 @@
 
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:padding="16dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="18dp"
                 android:text="Player 2"
-                android:textColor="#616161"
-                android:textSize="14sp" />
+                android:textColor="#f4b30f"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/player_2_score"
@@ -109,29 +135,28 @@
                 android:gravity="center"
                 android:paddingBottom="24dp"
                 android:text="0"
-                android:textColor="#000000"
+                android:textColor="#f4b30f"
                 android:textSize="56sp" />
 
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:onClick="addOneForPlayer2"
-                android:text="+1 Point" />
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="85dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="addOneForPlayer2"
+                    android:text="+1 Point" />
+
+
+                <Button
                     android:id="@+id/player_2_let_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="24dp"
                     android:onClick="addLetPlayer2"
                     android:text="Let" />
 
@@ -140,21 +165,11 @@
                     android:id="@+id/player_2_let_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/player_2_let_button"
+                    android:layout_gravity="center"
                     android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="26sp"
-                    />
+                    android:textColor="#f4b30f"
+                    android:textSize="26sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
-        android:onClick="resetScore"
-        android:text="Reset" />
 </RelativeLayout>
